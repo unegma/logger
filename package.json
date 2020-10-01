@@ -1,0 +1,25 @@
+{
+  "name": "api-middleware",
+  "version": "1.0.0",
+  "description": "Middleware for simplifying calls to API endpoints",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unegma/api-middleware.git"
+  },
+  "keywords": [
+    "middlewear",
+    "api"
+  ],
+  "author": "Unegma lTD",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/unegma/api-middleware/issues"
+  },
+  "homepage": "https://github.com/unegma/api-middleware#readme",
+  "types": "index.d.ts",
+  "typings": "index.d.ts"
+}
