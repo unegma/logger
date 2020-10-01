@@ -1,2 +1,5 @@
-// Convenience file to require all from the root
-module.exports = require('./lib/middleware');
+const { ErrorWithErrorHandlerError } = require('./lib/errors');
+
+module.exports = {
+  ErrorWithErrorHandlerError,
+}
