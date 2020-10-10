@@ -4,6 +4,9 @@ const {
 } = process.env;
 const chai = require('chai');
 const expect = chai.expect;
+const sinon = require('sinon');
+const sinonChai = require('sinon-chai');
+chai.use(sinonChai);
 const ErrorHandler = require('../lib/ErrorHandler');
 const SlackErrorHandler = require('../lib/SlackErrorHandler');
 const ErrorWithErrorHandlerError = require('../lib/errors/ErrorWithErrorHandlerError');
@@ -29,6 +32,13 @@ describe('Errors Test', () => {
     expect(() => {
       slackErrorHandler.throwError('Message')
     }).to.throw(ErrorWithErrorHandlerError);
+  });
+
+  it('should handle an Error', () => {
+    sinon.spy(console, 'log');
+    const errorHandler = new ErrorHandler('Console', 'https://example.com');
+    errorHandler.handleError('testError', 'This is a test', 'Test Error');
+    expect(console.log).to.have.been.calledTwice;
   });
 
 });
