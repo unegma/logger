@@ -22,19 +22,16 @@
   "homepage": "https://github.com/unegma/api-middleware#readme",
   "types": "index.d.ts",
   "devDependencies": {
-    "aws-sdk": "^2.176.0",
     "chai": "^4.2.0",
+    "dotenv": "^8.2.0",
     "lambda-tester": "^4.0.1",
     "mocha": "^8.1.3",
+    "nock": "^13.0.4",
     "node-fetch": "^2.6.0",
-    "proxyquire": "^2.1.3",
     "sinon": "^9.0.3",
     "sinon-chai": "^3.5.0"
   },
   "dependencies": {
-    "aws-sdk": "^2.751.0",
-    "google-spreadsheet": "^3.0.13",
-    "googleapis": "^39.2.0",
     "node-fetch": "^2.6.1",
     "request": "^2.88.2"
   }
