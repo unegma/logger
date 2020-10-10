@@ -27,18 +27,18 @@ describe('Errors Test', () => {
   });
 
   it('should create an instance of an ErrorHandler', () => {
-    const errorHandler = new ErrorHandler('Console', 'https://example.com');
-    expect(errorHandler.sayLogType()).to.equal('Console');
-    expect(errorHandler.sayLogUrl()).to.equal('https://example.com');
+    const errorHandler = new ErrorHandler();
+    expect(errorHandler).to.be.instanceOf(ErrorHandler);
+    expect(() => {
+      errorHandler.throwError('Message')
+    }).to.throw(ErrorWithErrorHandlerError);
   });
 
   it('should create an instance of a SlackErrorHandler', () => {
     const slackErrorHandler = new SlackErrorHandler('Slack', 'https://example.com', SLACK_ERROR_LOG);
-    expect(slackErrorHandler.sayLogType()).to.equal('Slack');
-    expect(slackErrorHandler.sayLogUrl()).to.equal('https://example.com');
-    expect(slackErrorHandler.saySlackUrl()).to.contain('hooks.slack.com');
+    expect(slackErrorHandler).to.be.instanceOf(SlackErrorHandler);
     expect(() => {
-      slackErrorHandler.throwError('Message')
+      slackErrorHandler.throwError()
     }).to.throw(ErrorWithErrorHandlerError);
   });
 
@@ -53,7 +53,7 @@ describe('Errors Test', () => {
       .post(uri => uri.includes('services'))
       .reply(200, "ok");
 
-    const slackErrorHandler = new SlackErrorHandler('Slack', 'https://example.com', SLACK_ERROR_LOG);
+    const slackErrorHandler = new SlackErrorHandler(SLACK_ERROR_LOG); // 'YYYY-MM-DD-dddd'
     const response = await slackErrorHandler.handleError('testError', 'This is a test', 'Test Error');
     expect(console.log).to.have.callCount(3);
     expect(response).to.equal('ok');
