@@ -1,8 +1,12 @@
+require('dotenv').config({ path: '.env' });
+const {
+  SLACK_ERROR_LOG,
+} = process.env;
 const chai = require('chai');
 const expect = chai.expect;
-const ErrorWithErrorHandlerError = require('../lib/errors/ErrorWithErrorHandlerError');
 const ErrorHandler = require('../lib/ErrorHandler');
 const SlackErrorHandler = require('../lib/SlackErrorHandler');
+const ErrorWithErrorHandlerError = require('../lib/errors/ErrorWithErrorHandlerError');
 
 describe('Errors Test', () => {
 
@@ -18,10 +22,10 @@ describe('Errors Test', () => {
   });
 
   it('should create an instance of a SlackErrorHandler', () => {
-    const slackErrorHandler = new SlackErrorHandler('Slack', 'https://example.com', 'https://slack.example.com');
+    const slackErrorHandler = new SlackErrorHandler('Slack', 'https://example.com', SLACK_ERROR_LOG);
     expect(slackErrorHandler.sayLogType()).to.equal('Slack');
     expect(slackErrorHandler.sayLogUrl()).to.equal('https://example.com');
-    expect(slackErrorHandler.saySlackUrl()).to.equal('https://slack.example.com');
+    expect(slackErrorHandler.saySlackUrl()).to.contain('hooks.slack.com');
   });
 
 });
