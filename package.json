@@ -1,6 +1,6 @@
 {
   "name": "@unegma/error-handler",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ErrorHandler class for sending log to external services",
   "main": "index.js",
   "scripts": {
