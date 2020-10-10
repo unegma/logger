@@ -7,11 +7,19 @@ const expect = chai.expect;
 const sinon = require('sinon');
 const sinonChai = require('sinon-chai');
 chai.use(sinonChai);
+const nock = require('nock')
 const ErrorHandler = require('../lib/ErrorHandler');
 const SlackErrorHandler = require('../lib/SlackErrorHandler');
 const ErrorWithErrorHandlerError = require('../lib/errors/ErrorWithErrorHandlerError');
 
 describe('Errors Test', () => {
+  beforeEach(function() {
+    sinon.spy(console, 'log');
+  });
+
+  afterEach(function() {
+    console.log.restore();
+  });
 
   it('should create an instance of an ErrorWithErrorHandlerError', () => {
     const error = new ErrorWithErrorHandlerError('Error Happened');
@@ -35,10 +43,20 @@ describe('Errors Test', () => {
   });
 
   it('should handle an Error', () => {
-    sinon.spy(console, 'log');
     const errorHandler = new ErrorHandler('Console', 'https://example.com');
     errorHandler.handleError('testError', 'This is a test', 'Test Error');
     expect(console.log).to.have.been.calledTwice;
+  });
+
+  it('should handle an Error and Post to Slack', async () => {
+    nock(SLACK_ERROR_LOG)
+      .post(uri => uri.includes('services'))
+      .reply(200, "ok");
+
+    const slackErrorHandler = new SlackErrorHandler('Slack', 'https://example.com', SLACK_ERROR_LOG);
+    const response = await slackErrorHandler.handleError('testError', 'This is a test', 'Test Error');
+    expect(console.log).to.have.callCount(3);
+    expect(response).to.equal('ok');
   });
 
 });
