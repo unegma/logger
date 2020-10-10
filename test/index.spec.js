@@ -26,6 +26,9 @@ describe('Errors Test', () => {
     expect(slackErrorHandler.sayLogType()).to.equal('Slack');
     expect(slackErrorHandler.sayLogUrl()).to.equal('https://example.com');
     expect(slackErrorHandler.saySlackUrl()).to.contain('hooks.slack.com');
+    expect(() => {
+      slackErrorHandler.throwError('Message')
+    }).to.throw(ErrorWithErrorHandlerError);
   });
 
 });
