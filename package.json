@@ -1,5 +1,5 @@
 {
-  "name": "api-middleware",
+  "name": "@unegma/error-handler",
   "version": "1.0.0",
   "description": "Middleware for simplifying calls to API endpoints",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/unegma/api-middleware.git"
+    "url": "git+https://github.com/unegma/error-handler.git"
   },
   "keywords": [
     "middlewear",
@@ -17,9 +17,9 @@
   "author": "Unegma lTD",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/unegma/api-middleware/issues"
+    "url": "https://github.com/unegma/error-handler/issues"
   },
-  "homepage": "https://github.com/unegma/api-middleware#readme",
+  "homepage": "https://github.com/unegma/error-handler#readme",
   "types": "index.d.ts",
   "devDependencies": {
     "chai": "^4.2.0",
