@@ -1,7 +1,7 @@
 {
   "name": "@unegma/error-handler",
   "version": "1.0.0",
-  "description": "Middleware for simplifying calls to API endpoints",
+  "description": "ErrorHandler class for sending log to external services",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
