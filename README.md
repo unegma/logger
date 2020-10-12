@@ -3,12 +3,20 @@
 * Console log version (basic logging)
 * Slack Version (posts errors to Slack based on desired timestamp formate)
 
-## Commands For Publishing to NPM
+## Usage
+```
+const {
+  SLACK_ERROR_LOG
+} = process.env;
+const { SlackErrorHandler } = require('@unegma/error-handler');
+const slackErrorHandler = new SlackErrorHandler(SLACK_ERROR_LOG);
 
-`git push`
-`npm whoami`
-`npm login`
-`git stash`
-`npm version 1.0.1`
-`npm publish --access public`
-`git stash apply`
+...
+
+try {
+  throw new Error();
+
+} catch(error) {
+  await slackErrorHandler.handleError('myFunction', `myModule failed.`, error);
+}
+```
