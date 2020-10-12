@@ -20,3 +20,22 @@ try {
   await slackErrorHandler.handleError('myFunction', `myModule failed.`, error);
 }
 ```
+
+Regular Logging (not async):
+
+```
+const {
+  SLACK_ERROR_LOG
+} = process.env;
+const { ErrorHandler } = require('@unegma/error-handler');
+const errorHandler = new ErrorHandler();
+
+...
+
+try {
+  throw new Error();
+
+} catch(error) {
+  errorHandler.handleError('myFunction', `myModule failed.`, error);
+}
+```
