@@ -23,9 +23,9 @@ NEEDS_TAG=`git describe --contains $GIT_COMMIT 2>/dev/null`
 
 #only tag if no tag already
 if [ -z "$NEEDS_TAG" ]; then
-    git tag $NEW_TAG
+    npm version $NEW_TAG
+    npm publish --access public
     echo "Tagged with $NEW_TAG"
-    git push --tags
 else
     echo "Already a tag on this commit"
 fi
