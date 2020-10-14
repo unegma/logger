@@ -4,6 +4,9 @@
 * Slack Version (posts errors to Slack based on desired timestamp formate)
 
 ## Usage
+
+`npm install @unegma/error-handler --save`
+
 ```
 const {
   SLACK_ERROR_LOG
