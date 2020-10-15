@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha ./test/index.spec.js",
-    "pub-minor": "bash ./publish.sh -v minor",
     "pub-major": "bash ./publish.sh -v major",
+    "pub-minor": "bash ./publish.sh -v minor",
     "pub-patch": "bash ./publish.sh -v patch"
   },
   "repository": {
