@@ -2,6 +2,8 @@
 
 # https://github.com/unegma/bash-functions/blob/main/update.sh
 
+# todo add a 'do you want to update all dependencies' check (when using this script with another module on which uses this module, may want to check this module for updates too)
+
 VERSION=""
 
 #get parameters
