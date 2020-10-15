@@ -4,7 +4,8 @@
   "description": "ErrorHandler class for sending log to external services",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha ./test/index.spec.js",
+    "publish": "./update.sh"
   },
   "repository": {
     "type": "git",
