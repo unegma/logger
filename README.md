@@ -1,18 +1,18 @@
-# Error Handler Utility
+# Logger Utility
 
 * Console log version (basic logging)
-* Slack Version (posts errors to Slack based on desired timestamp formate)
+* Slack Version (posts errors to Slack based on desired timestamp format)
 
 ## Usage
 
-`npm install @unegma/error-handler --save`
+`npm install @unegma/logger --save`
 
 ```
 const {
-  SLACK_ERROR_LOG
+  SLACK_LOG_URL
 } = process.env;
-const { SlackErrorHandler } = require('@unegma/error-handler');
-const slackErrorHandler = new SlackErrorHandler(SLACK_ERROR_LOG);
+const { SlackLogger } = require('@unegma/logger');
+const slackLogger = new SlackLogger(SLACK_LOG_URL);
 
 ...
 
@@ -20,7 +20,7 @@ try {
   throw new Error();
 
 } catch(error) {
-  await slackErrorHandler.handleError('myFunction', `myModule failed.`, error);
+  await slackLogger.log('myFunction', `myModule failed.`, error);
 }
 ```
 
@@ -28,10 +28,10 @@ Regular Logging (not async):
 
 ```
 const {
-  SLACK_ERROR_LOG
+  SLACK_LOG_URL
 } = process.env;
-const { ErrorHandler } = require('@unegma/error-handler');
-const errorHandler = new ErrorHandler();
+const { Logger } = require('@unegma/logger');
+const logger = new Logger();
 
 ...
 
@@ -39,6 +39,6 @@ try {
   throw new Error();
 
 } catch(error) {
-  errorHandler.handleError('myFunction', `myModule failed.`, error);
+  logger.log('myFunction', `myModule failed.`, error);
 }
 ```

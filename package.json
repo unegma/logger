@@ -1,7 +1,7 @@
 {
-  "name": "@unegma/error-handler",
+  "name": "@unegma/logger",
   "version": "1.4.19",
-  "description": "ErrorHandler class for sending log to external services",
+  "description": "Logger class for sending log to external services",
   "main": "index.js",
   "scripts": {
     "test": "mocha ./test/index.spec.js",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/unegma/error-handler.git"
+    "url": "git+https://github.com/unegma/logger.git"
   },
   "keywords": [
     "middlewear",
@@ -22,9 +22,9 @@
   "author": "Unegma lTD",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/unegma/error-handler/issues"
+    "url": "https://github.com/unegma/logger/issues"
   },
-  "homepage": "https://github.com/unegma/error-handler#readme",
+  "homepage": "https://github.com/unegma/logger#readme",
   "devDependencies": {
     "chai": "^4.2.0",
     "dotenv": "^8.2.0",
