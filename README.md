@@ -42,3 +42,4 @@ try {
   logger.log('myFunction', `myModule failed.`, error);
 }
 ```
+
