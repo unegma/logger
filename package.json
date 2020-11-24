@@ -1,6 +1,6 @@
 {
   "name": "@unegma/logger",
-  "version": "1.5.20",
+  "version": "1.5.21",
   "description": "Logger class for sending log to external services",
   "main": "index.js",
   "scripts": {
